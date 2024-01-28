@@ -24,7 +24,7 @@ const steps = [
 export const StepperComponent = (score) => {
   console.log('Score', score.score);
   let sum = 0;
-  if (score.score < 75) {
+  if (score.score < 75 && score.score !=0) {
     sum += 2;
   } else {
     sum += 0;
