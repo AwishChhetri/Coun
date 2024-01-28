@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import axios from "axios";
 import { useUser } from '../userContext.jsx';
 import logo from "../assets/OpenUp.jpg"
-// import {FaceDetectionComponent} from "./FaceDetectionComponent.jsx"
+import {FaceDetectionComponent} from "./FaceDetectionComponent.jsx"
 import {
   VStack,
   Button,
@@ -187,7 +187,7 @@ export const Assessment = () => {
             </Box>
           </Container>
           <VStack align="center" spacing="4" mt="4">
-            {/* <FaceDetectionComponent  /> */}
+            <FaceDetectionComponent  />
 
             {!testStarted && <Rules agreementChecked={agreementChecked} onAgreementChange={setAgreementChecked} />}
 
