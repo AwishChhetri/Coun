@@ -1,22 +1,23 @@
-import {useState, useEffect} from 'react';
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useUser } from '../userContext.jsx';
-import logo from "../assets/OpenUp.jpg"
-import {FaceDetectionComponent} from "./FaceDetectionComponent.jsx"
+import { useHistory } from 'react-router-dom';
+import {FaceDetectionComponent} from './FaceDetectionComponent.jsx';
 import {
   VStack,
   Button,
   Text,
- Image,Container,
- Box,
-Flex,
-
+  Image,
+  Container,
+  Box,
+  Flex,
 } from '@chakra-ui/react';
-import { Sidebar } from '../components/Sidebar.jsx';
+import {Sidebar} from '../components/Sidebar.jsx';
 import {Rules} from '../components/Rules.jsx';
 import {QuestionsForm} from '../components/QuestionsForm.jsx';
+
 export const Assessment = () => {
-  const questionsWithOptions = {
+  const questionsWithOptions1 = {
     "Overall how would you rate your mental health?": {
       'Excellent': 0,
       'Somewhat good': 1,
@@ -66,40 +67,63 @@ export const Assessment = () => {
       'Not so often': 1,
       'Not at all': 0
     }
-  }
-  
-  
-  
-  const questions = Object.keys(questionsWithOptions);
+  };
 
+  const questionsWithOptions2 = {
+    "During the past two weeks, how often has your mental health affected your relationships?": {
+      'Very often': 4,
+      'Somewhat often': 3,
+      'May be once or twice': 2,
+      'Not so often': 1,
+      'Not at all': 0
+    },
+    "During the past two weeks, how often has your mental health affected your relationships?": {
+      'Very often': 4,
+      'Somewhat often': 3,
+      'May be once or twice': 2,
+      'Not so often': 1,
+      'Not at all': 0
+    },
+  };
+
+  const determineQuestionsDataset = (stage) => {
+    if (stage === 0 || stage === 1) {
+      return questionsWithOptions1;
+    } else if (stage === 2) {
+      return questionsWithOptions2;
+    }
+    // Default to an empty object if the stage is not 0, 1, or 3
+    return {};
+  };
+
+  const { userId } = useUser();
+  const [userinfo, setUserinfo] = useState();
+  const [questionsWithOptions, setQuestionsWithOptions] = useState({});
+  const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState(Array(questions.length).fill(null));
   const [timer, setTimer] = useState(600); // 10 minutes in seconds
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [testStarted, setTestStarted] = useState(false);
   const [agreementChecked, setAgreementChecked] = useState(false);
-  const [userData, setUserData] = useState();
-  const { userId } = useUser();
-  const [userinfo, setUserinfo] = useState(); 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       // // Fetch user data from the backend API using the userId
-  //       // const responseUserInfo = await axios.get(`/userdata/${userId}`);
-  //       // setUserinfo(responseUserInfo.data);
-  
-  //       const responseUserData = await axios.get(`/assessment-test/data/${userId}`);
-  //       setUserData(responseUserData.data);
-  //       setTestGiven(true);
-  //     } catch (error) {
-  //     }
-  //   };
-  
-  //   if (userId) {
-  //     fetchData();
-  //   }
-  // }, [userId]);
-  
+  const history = useHistory();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const responseUserInfo = await axios.get(`/userdata/${userId}`);
+        setUserinfo(responseUserInfo.data);
+        const dataset = determineQuestionsDataset(userinfo && userinfo.stage);
+        setQuestionsWithOptions(dataset);
+        setQuestions(Object.keys(dataset));
+      } catch (error) {
+        console.error('Error fetching user data:', error.message);
+      }
+    };
+
+    if (userId) {
+      fetchData();
+    }
+  }, [userId, userinfo]);
 
   useEffect(() => {
     if (isTimerRunning) {
@@ -128,28 +152,42 @@ export const Assessment = () => {
   };
 
   const handleSubmission = async () => {
-    console.log(selectedOptions)
-
     try {
-      const response = await axios.post(`http://localhost:3000/assessment-test/${userId}`, {
-        selectedOptions
-      });
+      if (userinfo.stage === 1 || userinfo.stage === 0) {
+        const response = await axios.post(`/assessment-test/${userId}`, {
+          selectedOptions,
+        });
   
-      if (response.status === 200) {
-        console.log('Personality test data submitted successfully!');
-        setTestGiven(true);
-  
-        // Reload the page after the test is submitted
-        window.location.reload();
+        if (response.status === 200) {
+          console.log('Personality test data submitted successfully!');
+          // Redirect to the next page after submission
+          history.push('/intake-form');
+          // Reload the page after redirection
+          window.location.reload();
+        } else {
+          console.error('Error submitting test data:', response.statusText);
+        }
       } else {
-        console.error('Error submitting personality test data:', response.statusText);
-      }
+        const response = await axios.post(`/assessment2-test/${userId}`, {
+          selectedOptions,
+        });
   
-      setTestGiven(true);
+        if (response.status === 200) {
+          console.log('Personality test data submitted successfully!');
+          // Redirect to the next page after submission
+          history.push('/intake-form');
+          // Reload the page after redirection
+          window.location.reload();
+        } else {
+          console.error('Error submitting test data:', response.statusText);
+        }
+      }
     } catch (error) {
-      console.error('Error submitting personality test data:', error.message);
+      console.error('Error submitting test data:', error.message);
     }
   };
+  
+
   const startTest = () => {
     setTestStarted(true);
     setIsTimerRunning(true);
@@ -166,9 +204,8 @@ export const Assessment = () => {
 
   return (
     <Flex direction={{ base: 'column', md: 'row' }} minH="100vh" bgGradient="linear(to-r, #89f7fe, #66a6ff)" color="white">
-    <Sidebar display={{ base: 'none', md: 'solid' }} />
-    <Flex flex="1" direction="column" p="8" ml={{ base: '0', md: '260px' }}>
-     
+      <Sidebar display={{ base: 'none', md: 'solid' }} />
+      <Flex flex="1" direction="column" p="8" ml={{ base: '0', md: '260px' }}>
         <Box p="6" bg="white" borderRadius="md" boxShadow="md" mb="4" id="PersonalityTest">
           <Container maxW="xl" centerContent>
             <Box
@@ -182,12 +219,12 @@ export const Assessment = () => {
               borderWidth="1px"
             >
               <Text fontSize={{ base: '4xl', md: '2xl' }} fontFamily="Work Sans" color="black">
-                Mental Assessment
+                Mental Assessment(Stage: {userinfo && userinfo.stage})
               </Text>
             </Box>
           </Container>
           <VStack align="center" spacing="4" mt="4">
-            <FaceDetectionComponent  />
+            <FaceDetectionComponent />
 
             {!testStarted && <Rules agreementChecked={agreementChecked} onAgreementChange={setAgreementChecked} />}
 
@@ -211,13 +248,12 @@ export const Assessment = () => {
             )}
           </VStack>
         </Box>
-      
-      <Box mt="auto" textAlign="center">
-        <Text fontSize="sm" color="gray.500">
-          &copy; 2024 Eunoia. All rights reserved.
-        </Text>
-      </Box>
+        <Box mt="auto" textAlign="center">
+          <Text fontSize="sm" color="gray.500">
+            &copy; 2024 Eunoia. All rights reserved.
+          </Text>
+        </Box>
+      </Flex>
     </Flex>
-  </Flex>
-);
+  );
 };

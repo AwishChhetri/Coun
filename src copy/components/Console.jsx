@@ -240,7 +240,7 @@ export const Console=({
 
       try {
         console.log("api")
-        fetch("/api/chat", {
+        fetch("http://localhost:3000/api/chat", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -612,7 +612,7 @@ export const Console=({
               return (
                 <div className={styles.Message} key={index}>
                   <span className={styles.Text}>
-                    <i>
+                    {/* <i>
                       Prompt:&nbsp;
                       {message.loading ? (
                         <span>
@@ -621,7 +621,7 @@ export const Console=({
                       ) : (
                         <>{message.content}</>
                       )}
-                    </i>
+                    </i> */}
                   </span>
                   {message.audio && (
                     <>

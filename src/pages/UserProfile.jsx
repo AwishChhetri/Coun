@@ -43,14 +43,18 @@ export const UserProfile = () => {
     }
   }, [userId]);
   let num;
+  let stage;
+
 
 if (userData) {
   num = userData.adviceScore;
+  stage=userData.stage;
 } else {
   num =0
 }
 
 const score = num ? Math.round((num / 28) * 100) : 0; 
+
 const handlePersonalityTest = () => {
     console.log("Starting Personality Test...");
   };
@@ -120,7 +124,7 @@ const handlePersonalityTest = () => {
 
             <Spacer />
 
-          < StepperComponent score={score}/>
+          < StepperComponent stage={stage}/>
           </Flex>
         </VStack>
       </Box>
