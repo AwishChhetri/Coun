@@ -240,7 +240,7 @@ export const Console=({
 
       try {
         console.log("api")
-        fetch("/api/chat", {
+        fetch("https://euserver.onrender.com/api/chat", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
