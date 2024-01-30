@@ -239,8 +239,7 @@ export const Console=({
       // Fetch
 
       try {
-        console.log("api")
-        fetch("http://localhost:3000/api/chat", {
+       
         fetch("https://euserver.onrender.com/api/chat", {
           method: "POST",
           headers: {
