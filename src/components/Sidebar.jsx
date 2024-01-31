@@ -95,7 +95,7 @@ export const Sidebar = () => {
             </Button>
             <Button colorScheme="teal" variant="solid" size="md" w="100%" leftIcon={<Icon as={FaComment} />}>
               <Link to="/dash" >
-                Talk to AI
+                AI Counsellor
               </Link>
             </Button>
             
