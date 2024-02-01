@@ -6,7 +6,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { UserProvider } from './userContext.jsx';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://conserver.vercel.app"; 
+axios.defaults.baseURL = "https://euserver.onrender.com"; 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   
