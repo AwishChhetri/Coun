@@ -75,11 +75,11 @@ const Login = () => {
         password,
       });
 
-      console.log('Login API Response:', response); // Log the entire response for debugging
-
+      console.log('Login API Response:', response.status); // Log the entire response for debugging
+      
       if (response.status === 200) {
         const { token, userId } = response.data;
-        console.log(response.data)
+        console.log(response.data.error)
         // Store the userId and token in the context
         setUserId(userId);
         setToken(token);

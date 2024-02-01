@@ -14,7 +14,14 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-const steps = [
+
+const desktopSteps = [
+  { title: 'First', description: 'Healthy' },
+  { title: 'Second', description: 'Can make it!' },
+  { title: 'Third', description: 'Consult' },
+];
+
+const mobileSteps = [
   { title: 'First', description: 'Healthy' },
   { title: 'Second', description: 'Can make it!' },
   { title: 'Third', description: 'Consult' },
@@ -22,6 +29,8 @@ const steps = [
 
 export const StepperComponent = ({ stage }) => {
   const isMobile = useBreakpointValue({ base: true, md: false });
+  const steps = isMobile ? mobileSteps : desktopSteps;
+  
   let activeStep = 0;
 
   if (stage === 3) {
@@ -37,7 +46,7 @@ export const StepperComponent = ({ stage }) => {
       <Stepper size={isMobile ? 'sm' : 'lg'} orientation={isMobile ? 'vertical' : 'horizontal'} index={activeStep}>
         {steps.map((step, index) => (
           <Step key={index || 0}>
-            <StepIndicator>
+            <StepIndicator color="black">
               <StepStatus
                 complete={<StepIcon />}
                 incomplete={<StepNumber />}
@@ -57,7 +66,7 @@ export const StepperComponent = ({ stage }) => {
 
       {activeStep === 3 && (
         <Button colorScheme="teal" mt="4">
-         <Link to="/appointment">Book a Session</Link> 
+          <Link to="/appointment">Book a Session</Link> 
         </Button>
       )}
     </Box>
