@@ -1,8 +1,7 @@
-
 {
   "redirects": [
     {
-      "source": "/",
+      "source": "/:path*",
       "destination": "/"
     }
   ]
