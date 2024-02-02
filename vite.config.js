@@ -4,7 +4,5 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 export default defineConfig({
   plugins: [nodePolyfills(), react()],
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom'],
-  },
+  
 })

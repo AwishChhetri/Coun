@@ -1,16 +1,8 @@
 {
   "rewrites": [
-    {
-      "source": "/:path*",
-      "destination": "/index.html"
-    }
+    { "source": "/(.*)", "destination": "/" }
   ],
-  "headers": [
-    {
-      "source": "/:path*",
-      "headers": [
-        { "key": "Content-Type", "value": "application/javascript" }
-      ]
-    }
+  "redirects": [
+    { "source": "/_error", "destination": "/" }
   ]
 }
