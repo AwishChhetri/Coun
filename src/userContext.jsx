@@ -4,8 +4,8 @@ const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   // Initialize state with data from localStorage or default to null
-  const [userId, setUserId] = useState(localStorage.getItem('userId') || null);
-  const [token, setToken] = useState(localStorage.getItem('token') || null);
+  const [userId, setUserId] = useState(localStorage.getItem('userId'));
+  const [token, setToken] = useState(localStorage.getItem('token'));
 
   // Use useEffect to update state when localStorage changes
   useEffect(() => {

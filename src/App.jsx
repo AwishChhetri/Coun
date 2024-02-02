@@ -6,7 +6,8 @@ import { Questions } from './pages/Questions.jsx';
 import { IntakeForm } from './pages/IntakeForm.jsx';
 import { Appointment } from './pages/Appointment.jsx';
 import { Assessment } from './components/Assessment.jsx';
-import {Settings} from './components/Settings.jsx'
+import { Settings } from './components/Settings.jsx';
+
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const userId = localStorage.getItem('userId');
   const token = localStorage.getItem('token');
@@ -14,7 +15,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(props) =>
-        userId && token? <Component {...props} /> : <Redirect to="/" />
+        (!userId || !token) ? <Redirect to="/" /> : <Component {...props} />
       }
     />
   );
@@ -24,15 +25,14 @@ const App = () => {
   return (
     <div className="App">
       <Route path="/" component={HomePage} exact />
-      <PrivateRoute path="/dash" component={Dash} />
-      <PrivateRoute path="/personality-test" component={Questions} />
-      <PrivateRoute path="/intake-form" component={IntakeForm} />
+      <PrivateRoute path="/dash" component={Dash} isPrivate={false} />
+      <PrivateRoute path="/personality-test" component={Questions} isPrivate={false} />
+      <PrivateRoute path="/intake-form" component={IntakeForm} isPrivate={true} />
       <PrivateRoute path="/appointment" component={Appointment} />
       <PrivateRoute path="/assessment" component={Assessment} />
-      <PrivateRoute path="/settings" component={Settings} />
+      <PrivateRoute path="/settings" component={Settings} isPrivate={true} />
     </div>
   );
 };
 
 export default App;
-85
