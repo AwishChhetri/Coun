@@ -2,8 +2,8 @@
 {
   "redirects": [
     {
-      "source": "/(.*)",
-      "destination": "www.eunoiaofficials.com"
+      "source": "/",
+      "destination": "/"
     }
   ]
 }
