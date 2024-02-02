@@ -1,2 +1,9 @@
 
-{ "REWRITES": [{ "SOURCE": "/(.*)", "DESTINATION":"/"}]}
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
+}

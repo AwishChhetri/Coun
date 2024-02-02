@@ -64,7 +64,13 @@ const handlePersonalityTest = () => {
   };
 
   const isMobile = useBreakpointValue({ base: true, md: false });
-   
+  var text = document.getElementById("myParagraph").textContent;
+  var textarea = document.getElementById('myTextarea');
+  textarea.value = text;
+  
+  textarea.addEventListener("input", function() {
+      document.getElementById("myParagraph").innerText = this.value;
+  });
   
 
   return (
@@ -145,7 +151,7 @@ const handlePersonalityTest = () => {
         A counselor provides empathetic guidance, helping individuals navigate challenges, explore emotions, and develop coping strategies. Through active listening and support, counselors empower clients to enhance their well-being and make positive life choices.
         </Text>
         <Text
-          id="OrderNotes"
+         
           mt="2"
           rounded="lg"
           border="1px"
@@ -153,7 +159,7 @@ const handlePersonalityTest = () => {
           boxShadow="sm"
           fontSize="md"
           rows="4"
-          color="green"
+          color="green" id="myTextarea"
           placeholder="Test not taken..."
         > {userData && userData.advice}</Text>
         <Spacer/>
