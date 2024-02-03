@@ -64,13 +64,13 @@ const handlePersonalityTest = () => {
   };
 
   const isMobile = useBreakpointValue({ base: true, md: false });
-  var text = document.getElementById("myParagraph").textContent;
-  var textarea = document.getElementById('myTextarea');
-  textarea.value = text;
+  // var text = document.getElementById("myParagraph").textContent;
+  // var textarea = document.getElementById('myTextarea');
+  // textarea.value = text;
   
-  textarea.addEventListener("input", function() {
-      document.getElementById("myParagraph").innerText = this.value;
-  });
+  // ref={textareaRef}
+  // placeholder="Test not taken..."
+  // onChange={handleTextareaChange}
   
 
   return (
