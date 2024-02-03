@@ -1,10 +1,10 @@
 import {Sidebar} from "../components/Sidebar.jsx"
-
+import {Text} from "@chakra-ui/react"
 export const Settings=()=>{
     return(
     <>
         <Sidebar/>
-        <div size="6xl">Comming Soon</div>
+        <Text size="6xl">Coming Soon</Text>
 
     </>
 

@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useUser } from '../userContext.jsx';
 import { useHistory } from 'react-router-dom';
-import {FaceDetectionComponent} from './FaceDetectionComponent.jsx';
+import {Link} from 'react-router-dom'
+import logo from '../assets/logo.png';
+// import {FaceDetectionComponent} from './FaceDetectionComponent.jsx';
 import {
   VStack,
   Button,
@@ -161,9 +163,10 @@ export const Assessment = () => {
         if (response.status === 200) {
           console.log('Personality test data submitted successfully!');
           // Redirect to the next page after submission
-          history.push('/intake-form');
+          
           // Reload the page after redirection
           window.location.reload();
+          history.push('/intake-form');
         } else {
           console.error('Error submitting test data:', response.statusText);
         }
@@ -177,7 +180,7 @@ export const Assessment = () => {
           // Redirect to the next page after submission
           history.push('/intake-form');
           // Reload the page after redirection
-          window.location.reload();
+          
         } else {
           console.error('Error submitting test data:', response.statusText);
         }
@@ -218,13 +221,13 @@ export const Assessment = () => {
               borderRadius="lg"
               borderWidth="1px"
             >
-              <Text fontSize={{ base: '4xl', md: '2xl' }} fontFamily="Work Sans" color="black">
+              <Text fontSize={{ base: 'xl', md: '4xl' }} fontFamily="Work Sans" color="black">
                 Mental Assessment(Stage: {userinfo && userinfo.stage})
               </Text>
             </Box>
           </Container>
           <VStack align="center" spacing="4" mt="4">
-            <FaceDetectionComponent />
+          <Image src={logo} alt="Logo" boxSize="200px" objectFit="cover" borderRadius="full" />
 
             {!testStarted && <Rules agreementChecked={agreementChecked} onAgreementChange={setAgreementChecked} />}
 
@@ -247,13 +250,46 @@ export const Assessment = () => {
               </Button>
             )}
           </VStack>
+
+          
         </Box>
-        <Box mt="auto" textAlign="center">
-          <Text fontSize="sm" color="gray.500">
-            &copy; 2024 Eunoia. All rights reserved.
+         <Box
+          textAlign="center"
+          p="2"
+          mt={{ base: 5, md: 5 }}
+          bg="gray.100"
+          borderRadius="md"
+          boxShadow="md"
+          ml={{ base: 1, md: 300 }}
+          mr={{ base: 1, md: 300 }}
+          mb={{ base: 5, md: 5 }}
+        >
+          <Text fontSize="sm" color="gray.500" display="inline" mr={3}>
+            <Link as={Link} to="/terms">
+              Terms and Conditions
+            </Link>
+          </Text>
+          <Text fontSize="sm" color="gray.500" display="inline" mr={3}>
+            <Link as={Link} to="/privacy">
+              Privacy policy
+            </Link>
+          </Text>
+          <Text fontSize="sm" color="gray.500" display="inline">
+            <Link as={Link} to="/refund">
+              Refund policy
+            </Link>
+          </Text>
+
+          <Text fontSize="sm" color="gray.700" mt={{ base: 2, md: 0 }} display="block">
+            <Link as={Link} to="/" textDecoration="none" color="gray.700">
+              &copy;2024 Eunoia. All rights reserved.
+            </Link>
           </Text>
         </Box>
+
       </Flex>
+
+     
     </Flex>
   );
 };

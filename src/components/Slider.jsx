@@ -18,7 +18,7 @@ const steps = [
     { title: 'Third', description: 'Select Rooms' },
   ]
   
-export const Slider=() {
+export const Slider=()=>{
     const { activeStep, setActiveStep } = useSteps({
       index: 1,
       count: steps.length,

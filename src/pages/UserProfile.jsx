@@ -32,7 +32,7 @@ export const UserProfile = () => {
       try {
         const response = await axios.get(`/userdata/${userId}`);
         setUserData(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       } catch (error) {
         console.error("Error fetching user data:", error.message);
       }
@@ -56,7 +56,7 @@ if (userData) {
 const score = num ? Math.round((num / 28) * 100) : 0; 
 
 const handlePersonalityTest = () => {
-    console.log("Starting Personality Test...");
+    // console.log("Starting Personality Test...");
   };
 
   const animatedBoxStyle = {
@@ -86,9 +86,14 @@ const handlePersonalityTest = () => {
         direction={isMobile ? "column" : "row"}
       >
         <VStack spacing={4} align="start">
-          <Text fontSize="2xl" fontWeight="bold" color="gray.900">
-            Welcome Back, {userData && userData.name}!
-          </Text>
+        <Text fontSize="2xl" fontWeight="bold">
+  <Text as="span" color="blue.500">
+    Hi!,
+  </Text> 
+  <Text as="span" color="blue.900">
+    {' ' + (userData && userData.name)}
+  </Text>
+</Text>
           <Text fontSize="sm" color="gray.500">
             "Mental health is crucial for overall well-being. It affects how we
             think, feel, and handle stress. Prioritizing mental health fosters
@@ -191,20 +196,20 @@ const handlePersonalityTest = () => {
       Personality tests offer valuable insights into individual traits, behaviors, and preferences, fostering self-awareness. They aid in career choices, relationship dynamics, and personal growth, enhancing overall understanding and development.
     </Text>
     <HStack justify="space-between" spacing={isMobile ? 4 : 20} width="100%">
-      <CircularProgress value={40} color='green.400'>
-        <CircularProgressLabel>59%</CircularProgressLabel>
+      <CircularProgress  isIndeterminate value={40} color='green.400'>
+        <CircularProgressLabel>O</CircularProgressLabel>
       </CircularProgress>
-      <CircularProgress value={40} color='green.400'>
-        <CircularProgressLabel>50%</CircularProgressLabel>
+      <CircularProgress  isIndeterminate value={40} color='green.400'>
+        <CircularProgressLabel>C</CircularProgressLabel>
       </CircularProgress>
-      <CircularProgress value={40} color='green.400'>
-        <CircularProgressLabel>70%</CircularProgressLabel>
+      <CircularProgress  isIndeterminate value={40} color='green.400'>
+        <CircularProgressLabel>E</CircularProgressLabel>
       </CircularProgress>
-      <CircularProgress value={40} color='green.400'>
-        <CircularProgressLabel>80%</CircularProgressLabel>
+      <CircularProgress  isIndeterminate value={40} color='green.400'>
+        <CircularProgressLabel>A</CircularProgressLabel>
       </CircularProgress>
-      <CircularProgress value={40} color='green.400'>
-        <CircularProgressLabel>90%</CircularProgressLabel>
+      <CircularProgress  isIndeterminate value={40} color='green.400'>
+        <CircularProgressLabel>N</CircularProgressLabel>
       </CircularProgress>
     </HStack>
     <Button
@@ -218,6 +223,7 @@ const handlePersonalityTest = () => {
     </Button>
   </VStack>
 </Flex>
+
 
     </div>
   );

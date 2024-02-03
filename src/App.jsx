@@ -7,7 +7,9 @@ import { IntakeForm } from './pages/IntakeForm.jsx';
 import { Appointment } from './pages/Appointment.jsx';
 import { Assessment } from './components/Assessment.jsx';
 import { Settings } from './components/Settings.jsx';
-
+import { TermsAndConditions } from './pages/TermsAndConditions.jsx';
+import {RefundPolicy} from "./pages/Refund.jsx";
+import { PrivacyPolicy } from './pages/PrivacyPolicy.jsx';
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const userId = localStorage.getItem('userId');
   const token = localStorage.getItem('token');
@@ -25,6 +27,9 @@ const App = () => {
   return (
     <div className="App">
       <Route path="/" component={HomePage} exact />
+      <Route path="/terms" component={TermsAndConditions} exact />
+      <Route path="/privacy" component={PrivacyPolicy} exact />
+      <Route path="/refund" component={RefundPolicy} exact />
       <PrivateRoute path="/dash" component={Dash} isPrivate={false} />
       <PrivateRoute path="/personality-test" component={Questions} isPrivate={false} />
       <PrivateRoute path="/intake-form" component={IntakeForm} isPrivate={true} />

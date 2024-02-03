@@ -146,38 +146,9 @@ const SignUp = () => {
         />
       </FormControl>
 
-      <FormControl id="age" isRequired>
-        <FormLabel>Age</FormLabel>
-        <Input
-          type="number"
-          placeholder="30"
-          value={age}
-          onChange={(e) => setAge(e.target.value)}
-        />
-      </FormControl>
 
-      <FormControl id="maritalStatus" isRequired>
-        <FormLabel>Marital Status</FormLabel>
-        <Input
-          type="text"
-          placeholder="Single/Married"
-          value={maritalStatus}
-          onChange={(e) => setMaritalStatus(e.target.value)}
-        />
-      </FormControl>
-
-      <FormControl id="gender" isRequired>
-        <FormLabel>Gender</FormLabel>
-        <Select
-          placeholder="Select Gender"
-          value={gender}
-          onChange={(e) => setGender(e.target.value)}
-        >
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="others">Others</option>
-        </Select>
-      </FormControl>
+      
+      
 
       <FormControl id="password" isRequired>
         <FormLabel>Password</FormLabel>

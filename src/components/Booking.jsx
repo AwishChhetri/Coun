@@ -95,10 +95,10 @@ export const Booking = () => {
             appointmentDetails: appointmentDetails,
           }
         );
-
+        console.log(orderData.data)
         // Store order details in state
         setOrderDetails(orderData.data);
-
+        
         initPayment(orderData.data);
       } else {
         console.log("Please fill out the form completely.");
@@ -126,6 +126,8 @@ export const Booking = () => {
         companyName: bookingDetails.companyName,
         amount: bookingDetails.price,
       });
+
+      console.log("Invoice Data:", invoiceData);
     } catch (error) {
       console.log(error);
     } finally {
@@ -142,6 +144,7 @@ export const Booking = () => {
         width="auto"
         justifyContent={"center"}
         p={4}
+        bg="white"
       >
         <Text fontSize="xl" mb={4}>
           Appointment Booking
@@ -159,6 +162,8 @@ export const Booking = () => {
       </Box>
 
       {invoiceData && <Invoice invoiceData={invoiceData} />}
+
+      
     </VStack>
   );
 };

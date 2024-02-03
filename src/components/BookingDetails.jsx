@@ -19,5 +19,3 @@ export const BookingDetails = ({ serviceName, companyName, img, price }) => (
     </Text>
   </Box>
 );
-
-
