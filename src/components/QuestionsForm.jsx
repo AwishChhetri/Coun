@@ -9,6 +9,7 @@ import {
   Button,
   Text,
   Spinner,
+  Box,  // Add this import
 } from '@chakra-ui/react';
 
 export const QuestionsForm = ({
@@ -20,28 +21,10 @@ export const QuestionsForm = ({
   onNextQuestion,
   onSubmit,
   timer,
+  stage
 }) => {
   const [isAnswerSelected, setIsAnswerSelected] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [speechSynthesis, setSpeechSynthesis] = useState(null);
-
-  useEffect(() => {
-    if ('speechSynthesis' in window) {
-      const synthesis = window.speechSynthesis;
-      setSpeechSynthesis(synthesis);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (speechSynthesis) {
-      speakQuestion(questions[currentQuestion]);
-    }
-  }, [currentQuestion, speechSynthesis]);
-
-  const speakQuestion = (text) => {
-    const utterance = new SpeechSynthesisUtterance(text);
-    speechSynthesis.speak(utterance);
-  };
 
   const handleOptionChange = (optionValue) => {
     onOptionChange(optionValue);
@@ -142,6 +125,7 @@ export const QuestionsForm = ({
           timer / 60
         )}:${timer % 60}`}</Text>
       </VStack>
+      
     </VStack>
   );
 };

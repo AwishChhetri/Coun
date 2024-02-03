@@ -33,7 +33,7 @@ import axios from 'axios';
 import { useUser } from '../userContext.jsx';
 
 export const Sidebar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Change the default value to false
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Set initial state to true for desktop view
   const [isMobile] = useMediaQuery('(max-width: 600px)');
   const { userId } = useUser();
   const [userData, setUserData] = useState(null);
@@ -60,6 +60,11 @@ export const Sidebar = () => {
       getUserData();
     }
   }, [userId]);
+
+  useEffect(() => {
+    // Update sidebar state when the media query changes (for example, when switching between desktop and mobile)
+    setIsSidebarOpen(!isMobile);
+  }, [isMobile]);
 
   return (
     <>
@@ -114,7 +119,7 @@ export const Sidebar = () => {
             <Spacer />
 
             <VStack>
-              <HStack mt={{ base: '270', md: '130' }}>
+              <HStack mt={{ base: '200', md: '130' }}>
                 <Image src={image} alt="Logo" boxSize="50px" objectFit="cover" borderRadius="full" />
               </HStack>
               <HStack>
