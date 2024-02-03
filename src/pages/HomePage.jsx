@@ -20,7 +20,15 @@ export const HomePage = () => {
         >
           <VStack spacing={4}>
             <Image src={logo} alt="Logo" boxSize="100px" objectFit="cover" borderRadius="full" />
-            <Text fontSize='4xl' fontFamily="Work Sans" color="teal.600">Eunoia</Text>
+            <Text
+            ml="2"
+            colorScheme="yellow"
+            variant="outline"
+            fontSize={{ base: 'xl', md: '3xl' }}
+            textTransform="uppercase"
+          >
+            Eunoia
+          </Text>
           </VStack>
         </Box>
 
