@@ -127,11 +127,17 @@ export const Sidebar = () => {
                   Eunoia
                 </Text>
               </HStack>
-              <HStack>
-                <FaFacebook size={18} color="white" />
-                <FaInstagram size={18} color="white" />
-                <FaLinkedin size={18} color="white" />
-              </HStack>
+              <HStack spacing="4">
+  <a href="https://www.facebook.com/eunoiaofficials?mibextid=ZbWKwL" isExternal>
+    <FaFacebook size={18} color="white" />
+  </a>
+  <a href="https://www.instagram.com/eunoia_officials?igsh=MTJnamdxN252YWU1bg==" isExternal>
+    <FaInstagram size={18} color="white" />
+  </a>
+  <a href="https://www.linkedin.com/company/eunoia-official/" isExternal>
+    <FaLinkedin size={18} color="white" />
+  </a>
+</HStack>
               <HStack align="start" mt={4} spacing="4">
                 <Button variant="solid" size="sm" w="100%" leftIcon={<FaSignOutAlt />}>
                   <Link to="/">Logout</Link>

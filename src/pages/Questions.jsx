@@ -227,9 +227,10 @@ export const Questions = () => {
                 borderRadius="lg"
                 borderWidth="1px"
               >
-                <Text fontSize={{ base: '4xl', md: '2xl' }} fontFamily="Work Sans" color="black">
-                  Personality Test
-                </Text>
+                <Text fontSize={{ base: 'xl', md: '4xl' }} fontFamily="Work Sans" color="black">
+                Personality Test
+               </Text>
+                
               </Box>
             </Container>
             <VStack align="center" spacing="4" mt="4">
@@ -274,18 +275,19 @@ export const Questions = () => {
           ml={{ base: 1, md: 300 }}
           mr={{ base: 1, md: 300 }}
           mb={{ base: 5, md: 5 }}
+          fontSize={{ base: "xs", md: "sm" }}
         >
-          <Text fontSize="sm" color="gray.500" display="inline" mr={3}>
+          <Text  color="gray.500" display="inline" mr={3}>
             <Link as={Link} to="/terms">
               Terms and Conditions
             </Link>
           </Text>
-          <Text fontSize="sm" color="gray.500" display="inline" mr={3}>
+          <Text  color="gray.500" display="inline" mr={3}>
             <Link as={Link} to="/privacy">
               Privacy policy
             </Link>
           </Text>
-          <Text fontSize="sm" color="gray.500" display="inline">
+          <Text  color="gray.500" display="inline">
             <Link as={Link} to="/refund">
               Refund policy
             </Link>

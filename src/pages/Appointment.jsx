@@ -42,18 +42,19 @@ export const Appointment = () => {
           ml={{ base: 1, md: 500 }}
           mr={{ base: 1, md: 500 }}
           mb={{ base: 5, md: 5 }}
+          fontSize={{ base: "xs", md: "sm" }}
         >
-          <Text fontSize="sm" color="gray.500" display="inline" mr={3}>
+          <Text  color="gray.500" display="inline" mr={3}>
             <Link as={Link} to="/terms">
               Terms and Conditions
             </Link>
           </Text>
-          <Text fontSize="sm" color="gray.500" display="inline" mr={3}>
+          <Text  color="gray.500" display="inline" mr={3}>
             <Link as={Link} to="/privacy">
               Privacy policy
             </Link>
           </Text>
-          <Text fontSize="sm" color="gray.500" display="inline">
+          <Text  color="gray.500" display="inline">
             <Link as={Link} to="/refund">
               Refund policy
             </Link>

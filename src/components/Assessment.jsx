@@ -22,80 +22,81 @@ import {QuestionsForm} from '../components/QuestionsForm.jsx';
 export const Assessment = () => {
   const questionsWithOptions1 = {
     "Overall how would you rate your mental health?": {
-      'Excellent': 0,
-      'Somewhat good': 1,
+      'Excellent': 4,
+      'Somewhat good': 3,
       'Average': 2,
-      'Somewhat poor': 3,
-      'Poor': 4
+      'Somewhat poor': 1,
+      'Poor': 0
     },
     "During the past 4 weeks, have you had any problems with your work or daily life due to any emotional problems, such as feeling depressed, sad or anxious?": {
-      'Yes': 4,
-      'Some sort': 3,
+      'Yes': 0,
+      'Some sort': 1,
       'Not sure': 2,
-      'May be once or twice': 1,
-      'Not at all': 0
+      'May be once or twice': 3,
+      'Not at all': 4
     },
     "During the past 4 weeks, how often has your mental health affected your ability to get work done?": {
-      'Very often': 4,
-      'Somewhat often': 3,
+      'Very often': 0,
+      'Somewhat often': 1,
       'May be once or twice': 2,
-      'Not so often': 1,
-      'Not at all': 0
+      'Not so often': 3,
+      'Not at all': 4
     },
     "Have you felt particularly low or down for more than 2 weeks in a row?": {
-      'Very often': 4,
-      'Somewhat often': 3,
+      'Very often': 0,
+      'Somewhat often': 1,
       'May be once or twice': 2,
-      'Not so often': 1,
-      'Not at all': 0
+      'Not so often': 3,
+      'Not at all': 4
     },
     "During the past two weeks, how often has your mental health affected your relationships?": {
-      'Very often': 4,
-      'Somewhat often': 3,
+      'Very often': 0,
+      'Somewhat often': 1,
       'May be once or twice': 2,
-      'Not so often': 1,
-      'Not at all': 0
+      'Not so often': 3,
+      'Not at all': 4
     },
     "During the past 4 weeks, do you think you are going through a tough emotional situation?": {
-      'Yes Extremely': 4,
-      'Some sort of': 3,
+      'Yes Extremely': 0,
+      'Some sort of': 1,
       'May be once or twice': 2,
-      'Have to think': 1,
-      'Not at all': 0
+      'Have to think': 3,
+      'Not at all': 4
     },
     "During the past 4 weeks, how often did you get agitated?": {
-      'Very often': 4,
-      'Somewhat often': 3,
+      'Very often': 0,
+      'Somewhat often': 1,
       'May be once or twice': 2,
-      'Not so often': 1,
-      'Not at all': 0
+      'Not so often': 3,
+      'Not at all': 4
     }
   }
 
+  
   const questionsWithOptions2 = {
-    "I found it hard to wind down": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I was aware of dryness of my mouth": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I couldn’t seem to experience any positive feeling at all": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I experienced breathing difficulty (e.g. excessively rapid breathing, breathlessness in the absence of physical exertion)": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I found it difficult to work up the initiative to do things": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I tended to over-react to situations": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I experienced trembling (e.g. in the hands)": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I felt that I was using a lot of nervous energy": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I was worried about situations in which I might panic and make a fool of myself": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I felt that I had nothing to look forward to": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I found myself getting agitated": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I found it difficult to relax": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I felt down-hearted and blue": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I was intolerant of anything that kept me from getting on with what I was doing": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I felt I was close to panic": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I was unable to become enthusiastic about anything": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I felt I wasn’t worth much as a person": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I felt that I was rather touchy": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I was aware of the action of my heart in the absence of physical exertion (e.g. sense of heart rate increase, heart missing a beat)": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I felt scared without any good reason": { '0': 4, '1': 3, '2': 2, '3': 1 },
-    "I felt that life was meaningless": { '0': 4, '1': 3, '2': 2, '3': 1 },
-};
-
+    "I found it hard to wind down": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I was aware of dryness of my mouth": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I couldn’t seem to experience any positive feeling at all": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I experienced breathing difficulty (e.g. excessively rapid breathing, breathlessness in the absence of physical exertion)": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I found it difficult to work up the initiative to do things": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I tended to over-react to situations": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I experienced trembling (e.g. in the hands)": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I felt that I was using a lot of nervous energy": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I was worried about situations in which I might panic and make a fool of myself": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I felt that I had nothing to look forward to": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I found myself getting agitated": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I found it difficult to relax": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I felt down-hearted and blue": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I was intolerant of anything that kept me from getting on with what I was doing": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I felt I was close to panic": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I was unable to become enthusiastic about anything": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I felt I wasn’t worth much as a person": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I felt that I was rather touchy": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I was aware of the action of my heart in the absence of physical exertion (e.g. sense of heart rate increase, heart missing a beat)": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I felt scared without any good reason": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+    "I felt that life was meaningless": { 'Strongly Disagree': 0, 'Disagree': 0.33, 'Neutral': 0.67, 'Agree': 1, 'Strongly Agree': 1.34 },
+  };
+  
 
 
 
@@ -120,6 +121,7 @@ export const Assessment = () => {
   const [testStarted, setTestStarted] = useState(false);
   const [agreementChecked, setAgreementChecked] = useState(false);
   const history = useHistory();
+  const [alertDisplayed, setAlertDisplayed] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -138,6 +140,8 @@ export const Assessment = () => {
       fetchData();
     }
   }, [userId, userinfo]);
+
+
 
   useEffect(() => {
     if (isTimerRunning) {
@@ -167,48 +171,42 @@ export const Assessment = () => {
 
   const handleSubmission = async () => {
     try {
+      let response;
+  
       if (userinfo.stage === 1 || userinfo.stage === 0) {
-        const response = await axios.post(`/assessment-test/${userId}`, {
+        response = await axios.post(`/assessment-test/${userId}`, {
           selectedOptions,
         });
-  
-        if (response.status === 200) {
-          console.log('Personality test data submitted successfully!');
-          // Redirect to the next page after submission
-          Swal.fire({
-            icon: 'success',
-            title: 'Test Submitted Successfully!',
-            text: 'Thank you! You have successfully completed Stage 1.',
-          });
-          
-          // Reload the page after redirection
-          window.location.reload();
-          history.push('/intake-form');
-        } else {
-          console.error('Error submitting test data:', response.statusText);
-        }
       } else {
-        const response = await axios.post(`/assessment2-test/${userId}`, {
+        response = await axios.post(`/assessment2-test/${userId}`, {
           selectedOptions,
         });
+      }
   
-        if (response.status === 200) {
-          console.log('Personality test data submitted successfully!');
-          Swal.fire({
-            icon: 'success',
-            title: 'Test Submitted Successfully!',
-            text: 'Thank you! You have successfully completed Stage 2.',
-          });
-          // Redirect to the next page after submission
-          history.push('/intake-form');
-          // Reload the page after redirection
-          
-        } else {
-          console.error('Error submitting test data:', response.statusText);
-        }
+      if (response.status === 200) {
+        console.log('Personality test data submitted successfully!');
+        // Redirect to the next page after submission
+        Swal.fire({
+          icon: 'success',
+          title: 'Test Submitted Successfully!',
+          text: `Thank you! You have successfully completed Stage ${userinfo.stage}.`,
+        });
+  
+        // Reload the page after redirection
+        window.location.reload();
+        history.push('/intake-form');
+  
+        // Resolve the promise with the success message
+        return Promise.resolve('Test submitted successfully');
+      } else {
+        console.error('Error submitting test data:', response.statusText);
+        // Reject the promise with the error message
+        return Promise.reject(`Error submitting test data: ${response.statusText}`);
       }
     } catch (error) {
       console.error('Error submitting test data:', error.message);
+      // Reject the promise with the error message
+      return Promise.reject(`Error submitting test data: ${error.message}`);
     }
   };
   
@@ -227,12 +225,29 @@ export const Assessment = () => {
     setSelectedOptions(Array(questions.length).fill(null));
   };
 
+
+  useEffect(() => {
+    if (userinfo?.stage === 1 && !alertDisplayed) {
+      // Alert that the user has already completed the assessment
+      Swal.fire({
+        icon: 'info',
+        title: 'Previous Assessment Completed',
+        text: 'You have already completed the previous assessment. Only proceed with this assessment if you feel it is necessary.',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Got it!',
+      });
+      setAlertDisplayed(true);
+    }
+  }, [userinfo, alertDisplayed]);
   
 
   return (
     <Flex direction={{ base: 'column', md: 'row' }} minH="100vh" bgGradient="linear(to-r, #89f7fe, #66a6ff)" color="white">
+    {/* Sidebar component */}
     <Sidebar display={{ base: 'none', md: 'solid' }} />
+
     <Flex flex="1" direction="column" p="8" ml={{ base: '0', md: '260px' }}>
+      {/* PersonalityTest Box */}
       <Box p="6" bg="white" borderRadius="md" boxShadow="md" mb="4" id="PersonalityTest">
         <Container maxW="xl" centerContent>
           <Box
@@ -250,56 +265,58 @@ export const Assessment = () => {
             </Text>
           </Box>
         </Container>
+
         <VStack align="center" spacing="4" mt="4">
-  <Image src={logo} alt="Logo" boxSize="200px" objectFit="cover" borderRadius="full" />
+          <Image src={logo} alt="Logo" boxSize="200px" objectFit="cover" borderRadius="full" />
 
-  {/* Conditionally render the Rules component */}
-  {!testStarted && !userinfo?.stage && (
-    <Rules agreementChecked={agreementChecked} onAgreementChange={setAgreementChecked} />
-  )}
+          {/* Conditionally render the Rules component based on the stage */}
+          {(userinfo?.stage === 0 || userinfo?.stage === 1 || userinfo?.stage === 2) && !testStarted && (
+            <Rules agreementChecked={agreementChecked} onAgreementChange={setAgreementChecked} />
+          )}
 
-  {/* Conditionally render the QuestionsForm component */}
-  {testStarted && currentQuestion < questions.length && (
-    <QuestionsForm
-      currentQuestion={currentQuestion}
-      questions={questions}
-      options={questionsWithOptions[questions[currentQuestion]]}
-      selectedOptions={selectedOptions}
-      onOptionChange={handleOptionChange}
-      onNextQuestion={handleNextQuestion}
-      onSubmit={handleSubmission}
-      timer={timer}
-      userinfo={userinfo}
-    />
-  )}
+          {/* Conditionally render the QuestionsForm component */}
+          {testStarted && currentQuestion < questions.length && (
+            <QuestionsForm
+              currentQuestion={currentQuestion}
+              questions={questions}
+              options={questionsWithOptions[questions[currentQuestion]]}
+              selectedOptions={selectedOptions}
+              onOptionChange={handleOptionChange}
+              onNextQuestion={handleNextQuestion}
+              onSubmit={handleSubmission}
+              timer={timer}
+              userinfo={userinfo}
+            />
+          )}
 
-  {/* Conditionally render the Start Test button */}
-  {!testStarted && !userinfo?.stage && (
-    <Button colorScheme="teal" onClick={startTest} isDisabled={!agreementChecked} mt="4">
-      Start Test
-    </Button>
-  )}
-</VStack>
+          {/* Conditionally render the Start Test button */}
+          {(userinfo?.stage === 0 || userinfo?.stage === 1 || userinfo?.stage === 2) && !testStarted && (
+            <Button colorScheme="teal" onClick={startTest} isDisabled={!agreementChecked} mt="4">
+              Start Test
+            </Button>
+          )}
+        </VStack>
 
-        <Box p="6" bg="white" borderRadius="md" boxShadow="md" mb="4" id="PersonalityTest">
         {/* Existing code */}
-        {userinfo && userinfo.stage=== 3 && (
-          <Box
-            p="2"
-            bg="teal.500"
-            color="white"
-            borderRadius="md"
-            textAlign="center"
-            fontWeight="bold"
-            fontSize="lg"
-            mt="4"
-          >
-            Test Completed!
-          </Box>
-        )}
+        <Box p="6" bg="white" borderRadius="md" boxShadow="md" mb="4" id="PersonalityTest">
+          {userinfo && userinfo.stage === 3 && (
+            <Box
+              p="2"
+              bg="teal.500"
+              color="white"
+              borderRadius="md"
+              textAlign="center"
+              fontWeight="bold"
+              fontSize="lg"
+              mt="4"
+            >
+              Test Completed!
+            </Box>
+          )}
+        </Box>
       </Box>
-        {/* Remaining code */}
-      </Box>
+
+      {/* Footer */}
       <Box
         textAlign="center"
         p="2"
@@ -310,24 +327,28 @@ export const Assessment = () => {
         ml={{ base: 1, md: 300 }}
         mr={{ base: 1, md: 300 }}
         mb={{ base: 5, md: 5 }}
+        fontSize={{ base: "xs", md: "sm" }}
       >
-        <Text fontSize="sm" color="gray.500" display="inline" mr={3}>
-          <Link as={Link} to="/terms">
+        {/* Links to terms, privacy, and refund policies */}
+        <Text color="gray.500" display="inline" mr={3}>
+          <Link  to="/terms">
             Terms and Conditions
           </Link>
         </Text>
-        <Text fontSize="sm" color="gray.500" display="inline" mr={3}>
-          <Link as={Link} to="/privacy">
+        <Text color="gray.500" display="inline" mr={3}>
+          <Link  to="/privacy">
             Privacy policy
           </Link>
         </Text>
-        <Text fontSize="sm" color="gray.500" display="inline">
-          <Link as={Link} to="/refund">
+        <Text color="gray.500" display="inline">
+          <Link  to="/refund">
             Refund policy
           </Link>
         </Text>
+
+        {/* Copyright information */}
         <Text fontSize="sm" color="gray.700" mt={{ base: 2, md: 0 }} display="block">
-          <Link as={Link} to="/" textDecoration="none" color="gray.700">
+          <Link  to="/" textDecoration="none" color="gray.700">
             &copy;2024 Eunoia. All rights reserved.
           </Link>
         </Text>

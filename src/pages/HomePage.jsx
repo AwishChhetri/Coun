@@ -63,14 +63,15 @@ export const HomePage = () => {
   ml={{ base: 5, md: 500 }}
   mr={{ base: 5, md: 500 }}
   mb={{ base: 5, md: 5 }}
+  fontSize={{ base: "xs", md: "sm" }}
 >
-  <Text fontSize={{ base: "xs", md: "sm" }} color="gray.500" display="inline" mr={3}>
-    <Link to="/terms">Terms & Conditions</Link>
+  <Text   fontSize={{ base: "xs", md: "sm" }}  color="gray.500" display="inline" mr={3}>
+    <Link to="/terms" >Terms & Conditions</Link>
   </Text>
-  <Text fontSize="sm" color="gray.500" display="inline" mr={3}>
+  <Text  fontSize={{ base: "xs", md: "sm" }}  color="gray.500" display="inline" mr={3}>
     <Link to="/privacy">Privacy policy</Link>
   </Text>
-  <Text fontSize="sm" color="gray.500" display="inline">
+  <Text   fontSize={{ base: "xs", md: "sm" }}  color="gray.500" display="inline">
     <Link to="/refund">Refund policy</Link>
   </Text>
 

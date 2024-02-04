@@ -36,6 +36,7 @@ export const IntakeForm = () => {
           ml={{ base: 1, md: 300 }}
           mr={{ base: 1, md: 300 }}
           mb={{ base: 5, md: 5 }}
+          
         >
           <Text fontSize="sm" color="gray.500" display="inline" mr={3}>
             <Link as={Link} to="/terms">

@@ -24,7 +24,7 @@ import { useUser } from "../userContext.jsx";
 
 export const UserProfile = () => {
   const { userId } = useUser();
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState('');
   const [mentalHealthStatus, setMentalHealthStatus] = useState(70);
 
   useEffect(() => {
