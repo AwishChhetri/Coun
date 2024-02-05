@@ -3,14 +3,33 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  // Initialize state with data from localStorage or default to null
+  // Clear pre-existing token and userId when the component initializes
+  useEffect(() => {
+    localStorage.removeItem('userId');
+    localStorage.removeItem('token');
+  }, []);
+
   const [userId, setUserId] = useState(localStorage.getItem('userId'));
   const [token, setToken] = useState(localStorage.getItem('token'));
 
-  // Use useEffect to update state when localStorage changes
   useEffect(() => {
     localStorage.setItem('userId', userId);
     localStorage.setItem('token', token);
+
+    // Set a timeout to clear the token and userId after 1 hour
+    const clearLocalStorage = () => {
+      localStorage.removeItem('userId');
+      localStorage.removeItem('token');
+      setUserId(null);
+      setToken(null);
+    };
+
+    const timeoutId = setTimeout(clearLocalStorage, 60 * 60 * 1000); // 1 hour in milliseconds
+
+    // Clear the timeout if the component unmounts or if userId or token changes
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, [userId, token]);
 
   return (

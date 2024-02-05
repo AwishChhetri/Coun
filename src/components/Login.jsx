@@ -15,33 +15,14 @@ import Swal from 'sweetalert2';
 import { useUser } from '../userContext.jsx';
 
 const Login = () => {
-  const [show, setShow] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // Changed state variable name to be more descriptive
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const history = useHistory();
-  const [sessionTimeout, setSessionTimeout] = useState(null);
   const { setUserId, setToken } = useUser();
 
-  useEffect(() => {
-    return () => {
-      if (sessionTimeout) {
-        clearTimeout(sessionTimeout);
-      }
-    };
-  }, [sessionTimeout]);
-
-  const setSessionTimeoutCallback = () => {
-    const sessionTimeoutId = setTimeout(() => {
-      localStorage.removeItem('token');
-      localStorage.removeItem('userId');
-      setUserId(null);
-      setToken(null);
-      history.push('/');
-    },15*60 * 10000); // 1 hour session timeout
-
-    setSessionTimeout(sessionTimeoutId);
-  };
+ 
 
   const showAlert = (title, text, icon) => {
     Swal.fire({
@@ -75,23 +56,13 @@ const Login = () => {
         password,
       });
 
-      // console.log('Login API Response:', response); // Log the entire response for debugging
-
       if (response.status === 200) {
         const { token, userId } = response.data;
-        // console.log(response.data)
-        // Store the userId and token in the context
         setUserId(userId);
         setToken(token);
 
-        // Store the token and userId in localStorage (if needed)
-        localStorage.setItem('token', token);
-        localStorage.setItem('userId', userId);
 
-        // Continue with your navigation logic
-       
         history.push("/intake-form");
-        setSessionTimeoutCallback();
       } else {
         showAlert('Error', 'Invalid email or password', 'error');
       }
@@ -117,14 +88,14 @@ const Login = () => {
         <FormLabel>Password</FormLabel>
         <InputGroup>
           <Input
-            type={show ? 'text' : 'password'}
+            type={showPassword ? 'text' : 'password'}
             placeholder="Enter Your Password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
           <InputRightElement width="4.5rem">
-            <Button h="1.75rem" size="sm" onClick={() => setShow(!show)}>
-              {show ? 'Hide' : 'Show'}
+            <Button h="1.75rem" size="sm" onClick={() => setShowPassword(!showPassword)}>
+              {showPassword ? 'Hide' : 'Show'}
             </Button>
           </InputRightElement>
         </InputGroup>
