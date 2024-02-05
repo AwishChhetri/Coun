@@ -89,8 +89,9 @@ const Login = () => {
         localStorage.setItem('userId', userId);
 
         // Continue with your navigation logic
-        setSessionTimeoutCallback();
+       
         history.push("/intake-form");
+        setSessionTimeoutCallback();
       } else {
         showAlert('Error', 'Invalid email or password', 'error');
       }
