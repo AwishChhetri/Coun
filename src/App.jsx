@@ -32,7 +32,7 @@ const App = () => {
       <Route path="/refund" component={RefundPolicy} exact />
       <PrivateRoute path="/dash" component={Dash} isPrivate={false} />
       <PrivateRoute path="/personality-test" component={Questions} isPrivate={false} />
-      <PrivateRoute path="/intake-form" component={IntakeForm} isPrivate={true} />
+      <Route path="/intake-form" component={IntakeForm}  />
       <PrivateRoute path="/appointment" component={Appointment} />
       <PrivateRoute path="/assessment" component={Assessment} />
       <PrivateRoute path="/settings" component={Settings} isPrivate={true} />
