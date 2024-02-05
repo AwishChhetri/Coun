@@ -24,7 +24,7 @@ export const UserProvider = ({ children }) => {
       setToken(null);
     };
 
-    const timeoutId = setTimeout(clearLocalStorage, 10000); // 1 hour in milliseconds
+    const timeoutId = setTimeout(clearLocalStorage, 60 * 60 * 1000); // 1 hour in milliseconds
 
     // Clear the timeout if the component unmounts or if userId or token changes
     return () => {
